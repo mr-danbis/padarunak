@@ -1,0 +1,24 @@
+.header {
+    background-color: rgb(121, 160, 233);
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    &__logo {
+        font-size: 24px;
+    }
+
+    &__menu {
+        display: flex;
+
+        li {
+            &:not(:last-child) {
+                margin-right: 10px;
+            }
+        }
+    }
+}

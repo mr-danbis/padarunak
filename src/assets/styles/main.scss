@@ -1,0 +1,10 @@
+/* Settings */
+@use './libs.scss';
+@use './variables.scss';
+
+/* App */
+@use './App.scss';
+
+/* Components */
+@use '../../components/PageHeader/PageHeader.scss';
+@use '../../components/PageFooter/PageFooter.scss';
