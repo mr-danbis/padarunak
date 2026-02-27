@@ -2,11 +2,13 @@
     <div class="app-layout">
         <PageHeader />
         <main class="app-layout__main">
-            <router-view v-slot="{ Component }">
-                <transition name="fade" mode="out-in">
-                    <component :is="Component" />
-                </transition>
-            </router-view>
+            <div class="app-layout__container">
+                <router-view v-slot="{ Component }">
+                    <transition name="fade" mode="out-in">
+                        <component :is="Component" />
+                    </transition>
+                </router-view>
+            </div>
         </main>
         <PageFooter />
     </div>

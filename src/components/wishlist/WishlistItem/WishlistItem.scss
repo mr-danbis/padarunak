@@ -1,9 +1,7 @@
 @use '../../../assets/styles/variables' as vars;
 
 .wishlist-item {
-    display: flex;
-    gap: 16px;
-    padding: 16px;
+    position: relative;
     background: #fff;
     border: 1px solid #eee;
     border-radius: 12px;
@@ -16,10 +14,21 @@
     border-color: #e0e0e0;
 }
 
+.wishlist-item__link {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    padding-top: 40px;
+    color: inherit;
+    text-decoration: none;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
 .wishlist-item__image-wrap {
-    flex-shrink: 0;
-    width: 80px;
-    height: 80px;
+    width: 100%;
+    aspect-ratio: 1;
     border-radius: 8px;
     overflow: hidden;
     background: #f0f0f0;
@@ -39,35 +48,40 @@
 .wishlist-item__name {
     display: block;
     font-weight: 600;
-    color: inherit;
-    text-decoration: none;
     margin-bottom: 4px;
-    transition: color vars.$transition-normal;
-
-    &:hover {
-        text-decoration: underline;
-    }
+    line-height: 1.35;
 }
 
 .wishlist-item__price {
-    margin: 0 0 8px;
-    color: #333;
+    margin: 0;
+    font-size: 14px;
+    color: #666;
 }
 
 .wishlist-item__remove {
-    padding: 6px 12px;
-    font-size: 14px;
-    color: #c00;
-    background: transparent;
-    border: 1px solid #c00;
-    border-radius: 6px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    color: #999;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background vars.$transition-normal, transform vars.$transition-fast;
+    transition: color vars.$transition-normal, background vars.$transition-normal, border-color vars.$transition-normal;
 
     &:hover {
-        background: rgba(204, 0, 0, 0.08);
+        color: #c00;
+        background: rgba(204, 0, 0, 0.06);
+        border-color: rgba(204, 0, 0, 0.3);
     }
     &:active {
-        transform: scale(0.97);
+        transform: scale(0.96);
     }
 }
