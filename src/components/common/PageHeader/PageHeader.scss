@@ -1,0 +1,85 @@
+@use '../../../assets/styles/variables' as vars;
+
+.header {
+    background: vars.$color-primary;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: box-shadow vars.$transition-normal;
+}
+
+.header__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.header__logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: vars.$color-primary-text;
+    text-decoration: none;
+    transition: opacity vars.$transition-normal;
+
+    &:hover {
+        opacity: 0.92;
+    }
+}
+
+.header__menu {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header__menu a {
+    display: block;
+    padding: 8px 14px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: color vars.$transition-normal, background vars.$transition-normal;
+
+    &:hover {
+        color: vars.$color-primary-text;
+        background: rgba(255, 255, 255, 0.12);
+    }
+
+    &.router-link-active {
+        color: vars.$color-primary-text;
+        background: rgba(255, 255, 255, 0.15);
+    }
+}
+
+.header__wishlist-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.header__wishlist-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1;
+    color: vars.$color-primary;
+    background: vars.$color-primary-text;
+    border-radius: 10px;
+}
+

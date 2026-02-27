@@ -2,8 +2,14 @@
 node_modules
 /dist
 
+# SQLite БД (данные хранятся локально)
+/server/data/*.db
+/server/node_modules
+/server/venv
 
-# local env files
+
+# local env files (реальные секреты — не коммитить)
+.env
 .env.local
 .env.*.local
 

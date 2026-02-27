@@ -1,18 +1,34 @@
 <template>
-    <PageHeader />
-    <router-view />
-    <PageFooter />
+    <div class="app-layout">
+        <PageHeader />
+        <main class="app-layout__main">
+            <router-view v-slot="{ Component }">
+                <transition name="fade" mode="out-in">
+                    <component :is="Component" />
+                </transition>
+            </router-view>
+        </main>
+        <PageFooter />
+    </div>
 </template>
 
 <script>
-    import PageHeader from './components/PageHeader/PageHeader.vue'
-    import PageFooter from './components/PageFooter/PageFooter.vue'
+    import { onMounted } from 'vue'
+    import { useWishlistStore } from './stores/wishlistStore'
+    import PageHeader from './components/common/PageHeader/PageHeader.vue'
+    import PageFooter from './components/common/PageFooter/PageFooter.vue'
 
     export default {
         name: 'App',
         components: {
             PageHeader,
             PageFooter
+        },
+        setup() {
+            const wishlistStore = useWishlistStore()
+            onMounted(() => {
+                wishlistStore.fetchWishlist()
+            })
         }
     }
 </script>

@@ -1,10 +1,11 @@
 /* Settings */
 @use './libs.scss';
 @use './variables.scss';
-
-/* App */
 @use './App.scss';
+@use '../../components/common/PageHeader/PageHeader.scss';
+@use '../../components/common/PageFooter/PageFooter.scss';
 
-/* Components */
-@use '../../components/PageHeader/PageHeader.scss';
-@use '../../components/PageFooter/PageFooter.scss';
+/* Базовые плавности (после всех @use) */
+html {
+    scroll-behavior: smooth;
+}

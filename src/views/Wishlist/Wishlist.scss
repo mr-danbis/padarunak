@@ -1,0 +1,106 @@
+@use '../../assets/styles/variables' as vars;
+
+.wishlist {
+    padding: 24px 16px;
+    min-height: 60vh;
+    animation: wishlist-fade-in 0.3s ease-out;
+}
+
+@keyframes wishlist-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.wishlist__container {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.wishlist__title {
+    margin: 0 0 20px;
+    font-size: 28px;
+}
+
+.wishlist__add-btn {
+    margin-bottom: 20px;
+    padding: 12px 20px;
+    font-size: 16px;
+    background: vars.$color-primary;
+    color: vars.$color-primary-text;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity vars.$transition-normal, transform vars.$transition-fast;
+
+    &:hover {
+        opacity: 0.9;
+    }
+    &:active {
+        transform: scale(0.98);
+    }
+}
+
+.wishlist__error {
+    margin: 0 0 16px;
+    padding: 10px 12px;
+    font-size: 14px;
+    color: #c00;
+    background: rgba(204, 0, 0, 0.08);
+    border-radius: 6px;
+}
+
+.wishlist__retry {
+    margin-left: 12px;
+    padding: 4px 12px;
+    font-size: 13px;
+    color: #c00;
+    background: #fff;
+    border: 1px solid #c00;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background vars.$transition-normal;
+
+    &:hover {
+        background: rgba(204, 0, 0, 0.08);
+    }
+}
+
+.wishlist__empty {
+    padding: 32px 16px;
+    text-align: center;
+    color: #666;
+}
+
+.wishlist__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.wishlist__list > * {
+    animation: wishlist-item-in 0.35s ease-out backwards;
+}
+.wishlist__list > *:nth-child(1) { animation-delay: 0.02s; }
+.wishlist__list > *:nth-child(2) { animation-delay: 0.05s; }
+.wishlist__list > *:nth-child(3) { animation-delay: 0.08s; }
+.wishlist__list > *:nth-child(4) { animation-delay: 0.11s; }
+.wishlist__list > *:nth-child(5) { animation-delay: 0.14s; }
+.wishlist__list > *:nth-child(n+6) { animation-delay: 0.17s; }
+
+@keyframes wishlist-item-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

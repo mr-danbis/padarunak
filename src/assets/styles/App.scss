@@ -1,3 +1,24 @@
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.app-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-layout__main {
+    flex: 1 0 auto;
+}
+
+/* Плавная смена страниц */
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.2s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
 }

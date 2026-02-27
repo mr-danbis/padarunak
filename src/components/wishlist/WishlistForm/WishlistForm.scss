@@ -1,0 +1,90 @@
+@use '../../../assets/styles/variables' as vars;
+
+.wishlist-form {
+    margin-bottom: 32px;
+    padding: 24px;
+    background: #f5f5f5;
+    border-radius: 12px;
+}
+
+.wishlist-form__title {
+    margin: 0 0 20px;
+    font-size: 20px;
+}
+
+.wishlist-form__error {
+    margin: 0 0 16px;
+    padding: 10px 12px;
+    font-size: 14px;
+    color: #c00;
+    background: rgba(204, 0, 0, 0.08);
+    border-radius: 6px;
+}
+
+.wishlist-form__field {
+    margin-bottom: 16px;
+
+    label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 500;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px 12px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+        transition: border-color vars.$transition-normal, box-shadow vars.$transition-normal;
+
+        &:focus {
+            outline: none;
+            border-color: vars.$color-primary;
+            box-shadow: 0 0 0 3px rgba(37, 110, 227, 0.15);
+        }
+    }
+}
+
+.wishlist-form__actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.wishlist-form__submit {
+    padding: 10px 20px;
+    font-size: 16px;
+    background: vars.$color-primary;
+    color: vars.$color-primary-text;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: opacity vars.$transition-normal, transform vars.$transition-fast;
+
+    &:hover {
+        opacity: 0.92;
+    }
+    &:active {
+        transform: scale(0.98);
+    }
+}
+
+.wishlist-form__cancel {
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background vars.$transition-normal, border-color vars.$transition-normal, transform vars.$transition-fast;
+
+    &:hover {
+        background: #f5f5f5;
+        border-color: #999;
+    }
+    &:active {
+        transform: scale(0.98);
+    }
+}
