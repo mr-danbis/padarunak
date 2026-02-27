@@ -1,4 +1,4 @@
-"""Конфигурация из env (подключение к БД)."""
+"""Конфигурация из env (подключение к БД, auth)."""
 
 import os
 
@@ -14,3 +14,10 @@ def get_db_config():
         "password": os.environ.get("POSTGRES_PASSWORD", "postgres"),
         "dbname": os.environ.get("POSTGRES_DB", "wishlist"),
     }
+
+
+SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-change-in-production")
+GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", "")
+GOOGLE_CLIENT_SECRET = os.environ.get("GOOGLE_CLIENT_SECRET", "")
+FRONTEND_URL = os.environ.get("FRONTEND_URL", "http://localhost:5173")
+API_URL = os.environ.get("API_URL", "http://localhost:3001")

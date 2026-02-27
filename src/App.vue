@@ -17,6 +17,7 @@
 <script>
     import { onMounted } from 'vue'
     import { useWishlistStore } from './stores/wishlistStore'
+    import { useAuthStore } from './stores/authStore'
     import PageHeader from './components/common/PageHeader/PageHeader.vue'
     import PageFooter from './components/common/PageFooter/PageFooter.vue'
 
@@ -27,9 +28,13 @@
             PageFooter
         },
         setup() {
+            const authStore = useAuthStore()
             const wishlistStore = useWishlistStore()
-            onMounted(() => {
-                wishlistStore.fetchWishlist()
+            onMounted(async () => {
+                await authStore.fetchUser()
+                if (authStore.isLoggedIn) {
+                    wishlistStore.fetchWishlist()
+                }
             })
         }
     }

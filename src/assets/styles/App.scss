@@ -11,6 +11,7 @@
 
 .app-layout__main {
     flex: 1 0 auto;
+    min-width: 0;
 }
 
 .app-layout__container {
@@ -18,6 +19,14 @@
     margin: 0 auto;
     padding: 0 24px;
     width: 100%;
+}
+
+/* Общий заголовок вкладки (Моя информация, Мой вишлист и т.д.) */
+.section-title {
+    margin: 0 0 24px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #111;
 }
 
 /* Плавная смена страниц */

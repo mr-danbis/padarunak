@@ -39,6 +39,16 @@ def init_db(use_retry=False):
     cur = conn.cursor()
 
     cur.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            id SERIAL PRIMARY KEY,
+            google_id TEXT NOT NULL UNIQUE,
+            email TEXT NOT NULL,
+            name TEXT NOT NULL DEFAULT '',
+            picture_url TEXT NOT NULL DEFAULT '',
+            created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+        )
+    """)
+    cur.execute("""
         CREATE TABLE IF NOT EXISTS wishlist_items (
             id TEXT PRIMARY KEY,
             name TEXT NOT NULL DEFAULT '',
@@ -47,6 +57,9 @@ def init_db(use_retry=False):
             price TEXT NOT NULL DEFAULT '',
             created_at TIMESTAMPTZ NOT NULL
         )
+    """)
+    cur.execute("""
+        ALTER TABLE wishlist_items ADD COLUMN IF NOT EXISTS user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
     """)
     cur.execute("""
         CREATE TABLE IF NOT EXISTS home_categories (

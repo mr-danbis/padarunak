@@ -6,14 +6,15 @@ from dotenv import load_dotenv
 from flask import Flask
 from flask_cors import CORS
 
-from config import get_db_config
+from config import get_db_config, SECRET_KEY, FRONTEND_URL
 from database import init_db
 from routes import register_routes
 
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)
+app.secret_key = SECRET_KEY
+CORS(app, origins=[FRONTEND_URL], supports_credentials=True)
 
 register_routes(app)
 

@@ -1,8 +1,14 @@
 <template>
     <div class="wishlist">
         <div class="wishlist__container">
-            <h1 class="wishlist__title">Мой вишлист</h1>
+            <h1 class="section-title">Мой вишлист</h1>
 
+            <div v-if="!authLoading && !isLoggedIn" class="wishlist__guest">
+                <p class="wishlist__guest-text">Войдите через Gmail, чтобы видеть и редактировать вишлист.</p>
+                <button type="button" class="wishlist__guest-btn" @click="login">Войти через Gmail</button>
+            </div>
+
+            <template v-else>
             <p v-if="error" class="wishlist__error">
                 {{ error }}
                 <button type="button" class="wishlist__retry" @click="fetchWishlist">Повторить</button>
@@ -99,14 +105,17 @@
                     @remove="removeItem(item.id)"
                 />
             </ul>
+            </template>
         </div>
     </div>
 </template>
 
 <script>
 import { ref, computed, onMounted } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useWishlist } from '../../composables/useWishlist'
 import { useWishlistForm } from '../../composables/useWishlistForm'
+import { useAuthStore } from '../../stores/authStore'
 import { fetchLinkPreview } from '../../api/wishlist'
 import WishlistForm from '../../components/wishlist/WishlistForm/WishlistForm.vue'
 import WishlistItem from '../../components/wishlist/WishlistItem/WishlistItem.vue'
@@ -118,6 +127,8 @@ export default {
         WishlistItem
     },
     setup() {
+        const authStore = useAuthStore()
+        const { isLoggedIn, loading: authLoading } = storeToRefs(authStore)
         const { items, loading, error, fetchWishlist, addItem, removeItem } = useWishlist()
         const { showForm, form, submitting, error: formError, onSubmit, openForm, closeForm } = useWishlistForm(addItem)
 
@@ -178,6 +189,9 @@ export default {
         }
 
         return {
+            isLoggedIn,
+            authLoading,
+            login: () => authStore.login(),
             items,
             loading,
             error,

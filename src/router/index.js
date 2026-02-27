@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home/Home.vue'
-import Wishlist from '../views/Wishlist/Wishlist.vue'
+import Account from '../views/Account/Account.vue'
 
 const routes = [
   {
@@ -9,8 +9,12 @@ const routes = [
   },
   {
     path: '/wishlist',
-    component: Wishlist
+    redirect: { path: '/account', query: { section: 'wishlist' } }
   },
+  {
+    path: '/account',
+    component: Account
+  }
 ]
 
 const router = createRouter({

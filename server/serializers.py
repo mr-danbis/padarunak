@@ -15,6 +15,15 @@ def row_to_item(row):
     }
 
 
+def row_to_user(row):
+    return {
+        "id": row["id"],
+        "email": row["email"],
+        "name": row["name"],
+        "pictureUrl": row["picture_url"] or "",
+    }
+
+
 def row_to_product(row):
     return {
         "id": row["id"],

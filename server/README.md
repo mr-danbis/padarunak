@@ -54,12 +54,16 @@ API вишлиста: http://localhost:3001/api/wishlist
 ## API
 
 - `GET /api/home` — подборки для главной (категории с товарами)
-- `GET /api/wishlist` — список товаров вишлиста
-- `POST /api/wishlist` — добавить товар (body: name, imageUrl, link, price)
-- `DELETE /api/wishlist/:id` — удалить товар
-- `GET /api/link-preview?url=...` — превью товара по ссылке (название, картинка, цена)
+- `GET /api/wishlist` — список товаров вишлиста (требуется вход)
+- `POST /api/wishlist` — добавить товар (требуется вход)
+- `DELETE /api/wishlist/:id` — удалить товар (требуется вход)
+- `GET /api/link-preview?url=...` — превью товара по ссылке (публичный)
+- `GET /api/auth/login` — редирект на Google OAuth (вход только Gmail)
+- `GET /api/auth/callback` — callback после входа через Google
+- `GET /api/auth/me` — текущий пользователь (сессия) или 401
+- `GET /api/auth/logout` — выход и редирект на фронт
 
-БД: **PostgreSQL**. Таблицы: `wishlist_items`, `home_categories`, `home_products`. При первом запуске создаются только пустые таблицы — показывается только то, что есть в БД (данные добавляются вручную или миграциями).
+БД: **PostgreSQL**. Таблицы: `users`, `wishlist_items`, `home_categories`, `home_products`. Вишлист привязан к пользователю (`user_id`). При первом запуске создаются только пустые таблицы — показывается только то, что есть в БД (данные добавляются вручную или миграциями).
 
 ### Подключение к PostgreSQL
 
@@ -74,6 +78,20 @@ API вишлиста: http://localhost:3001/api/wishlist
 | `POSTGRES_DB` | wishlist | Имя базы |
 
 Либо одна строка: `DATABASE_URL=postgresql://user:password@host:5432/dbname`
+
+### Авторизация (только Gmail)
+
+Вход через Google OAuth. Нужны переменные:
+
+| Переменная | Описание |
+|------------|----------|
+| `SECRET_KEY` | Секрет для сессий Flask |
+| `GOOGLE_CLIENT_ID` | Client ID из Google Cloud Console (OAuth 2.0) |
+| `GOOGLE_CLIENT_SECRET` | Client Secret |
+| `FRONTEND_URL` | URL фронта (например http://localhost:5173) — для CORS и редиректа после входа |
+| `API_URL` | URL этого API (например http://localhost:3001) — для redirect_uri в OAuth |
+
+В Google Cloud Console: создать OAuth 2.0 Client (тип «Веб-приложение»), в «Authorized redirect URIs» указать `{API_URL}/api/auth/callback`. Разрешены только аккаунты @gmail.com / @googlemail.com.
 
 Локально (PostgreSQL уже установлен и запущен):
 

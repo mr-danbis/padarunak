@@ -32,7 +32,7 @@
                         {{ product.name }}
                     </a>
                     <p v-if="product.price" class="home-collection-card__price">{{ product.price }}</p>
-                    <router-link to="/wishlist" class="home-collection-card__btn">
+                    <router-link :to="{ path: '/account', query: { section: 'wishlist' } }" class="home-collection-card__btn">
                         В вишлист
                     </router-link>
                 </div>

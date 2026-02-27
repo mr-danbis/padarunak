@@ -16,9 +16,33 @@
 }
 
 
-.wishlist__title {
-    margin: 0 0 20px;
-    font-size: 28px;
+.wishlist__guest {
+    padding: 32px 24px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 12px;
+}
+
+.wishlist__guest-text {
+    margin: 0 0 16px;
+    color: #555;
+}
+
+.wishlist__guest-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #4285f4;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+        background: #3367d6;
+    }
 }
 
 .wishlist__by-link {
