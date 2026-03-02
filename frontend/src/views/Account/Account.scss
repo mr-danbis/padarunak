@@ -1,125 +1,127 @@
 .account {
-    display: flex;
-    gap: 0;
-    padding: 24px 0;
-    min-height: 60vh;
+  display: flex;
+  gap: 0;
+  padding: 24px 0;
+  min-height: 60vh;
 }
 
 .account__sidebar {
-    width: 220px;
-    flex-shrink: 0;
-    padding-right: 24px;
+  width: 220px;
+  flex-shrink: 0;
+  padding-right: 24px;
 }
 
 .account__nav {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .account__nav-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 14px;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    color: #333;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background 0.2s, color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  border-radius: 8px;
+  transition:
+    background 0.2s,
+    color 0.2s;
 
-    &:hover {
-        background: rgba(0, 0, 0, 0.06);
-    }
+  &:hover {
+    background: rgba(0, 0, 0, 0.06);
+  }
 
-    &.account__nav-link_active {
-        background: rgba(0, 0, 0, 0.08);
-        color: #111;
-    }
+  &.account__nav-link_active {
+    background: rgba(0, 0, 0, 0.08);
+    color: #111;
+  }
 }
 
 .account__nav-count {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 20px;
-    height: 20px;
-    padding: 0 6px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    line-height: 1;
-    color: #fff;
-    background: #333;
-    border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  color: #fff;
+  background: #333;
+  border-radius: 10px;
 }
 
 .account__content {
-    flex: 1;
-    min-width: 0;
+  flex: 1;
+  min-width: 0;
 }
 
 .account__wishlist {
-    padding-top: 0;
+  padding-top: 0;
 }
 
 .account__section {
-    max-width: 600px;
+  max-width: 600px;
 }
 
 .account__profile {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
 }
 
 .account__avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .account__avatar_placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80px;
-    height: 80px;
-    font-size: 2rem;
-    font-weight: 600;
-    color: #666;
-    background: rgba(0, 0, 0, 0.08);
-    border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #666;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 50%;
 }
 
 .account__field {
-    margin: 0;
-    font-size: 1rem;
-    color: #333;
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
 }
 
 .account__label {
-    display: inline-block;
-    min-width: 72px;
-    font-size: 0.875rem;
-    color: #666;
+  display: inline-block;
+  min-width: 72px;
+  font-size: 0.875rem;
+  color: #666;
 }
 
 .account__logout {
-    padding: 10px 20px;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    color: #333;
-    background: rgba(0, 0, 0, 0.08);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.2s;
+  padding: 10px 20px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #333;
+  background: rgba(0, 0, 0, 0.08);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
 
-    &:hover {
-        background: rgba(0, 0, 0, 0.12);
-    }
+  &:hover {
+    background: rgba(0, 0, 0, 0.12);
+  }
 }

@@ -1,87 +1,92 @@
 @use '../../../assets/styles/variables' as vars;
 
 .wishlist-item {
-    position: relative;
-    background: #fff;
-    border: 1px solid #eee;
-    border-radius: 12px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-    transition: box-shadow vars.$transition-normal, border-color vars.$transition-normal;
+  position: relative;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition:
+    box-shadow vars.$transition-normal,
+    border-color vars.$transition-normal;
 }
 
 .wishlist-item:hover {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    border-color: #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-color: #e0e0e0;
 }
 
 .wishlist-item__link {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 16px;
-    padding-top: 40px;
-    color: inherit;
-    text-decoration: none;
-    min-height: 100%;
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  padding-top: 40px;
+  color: inherit;
+  text-decoration: none;
+  min-height: 100%;
+  box-sizing: border-box;
 }
 
 .wishlist-item__image-wrap {
-    width: 100%;
-    aspect-ratio: 1;
-    border-radius: 8px;
-    overflow: hidden;
-    background: #f0f0f0;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f0f0f0;
 }
 
 .wishlist-item__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .wishlist-item__body {
-    flex: 1;
-    min-width: 0;
+  flex: 1;
+  min-width: 0;
 }
 
 .wishlist-item__name {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 4px;
-    line-height: 1.35;
+  display: block;
+  font-weight: 600;
+  margin-bottom: 4px;
+  line-height: 1.35;
 }
 
 .wishlist-item__price {
-    margin: 0;
-    font-size: 14px;
-    color: #666;
+  margin: 0;
+  font-size: 14px;
+  color: #666;
 }
 
 .wishlist-item__remove {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    padding: 0;
-    color: #999;
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: color vars.$transition-normal, background vars.$transition-normal, border-color vars.$transition-normal;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  color: #999;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    color vars.$transition-normal,
+    background vars.$transition-normal,
+    border-color vars.$transition-normal;
 
-    &:hover {
-        color: #c00;
-        background: rgba(204, 0, 0, 0.06);
-        border-color: rgba(204, 0, 0, 0.3);
-    }
-    &:active {
-        transform: scale(0.96);
-    }
+  &:hover {
+    color: #c00;
+    background: rgba(204, 0, 0, 0.06);
+    border-color: rgba(204, 0, 0, 0.3);
+  }
+  &:active {
+    transform: scale(0.96);
+  }
 }

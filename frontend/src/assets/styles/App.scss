@@ -1,40 +1,40 @@
 #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    min-height: 100vh;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
 }
 
 .app-layout {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .app-layout__main {
-    flex: 1 0 auto;
-    min-width: 0;
+  flex: 1 0 auto;
+  min-width: 0;
 }
 
 .app-layout__container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-    width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
 }
 
 /* Общий заголовок вкладки (Моя информация, Мой вишлист и т.д.) */
 .section-title {
-    margin: 0 0 24px;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #111;
+  margin: 0 0 24px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111;
 }
 
 /* Плавная смена страниц */
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 .fade-enter-from,
 .fade-leave-to {
-    opacity: 0;
+  opacity: 0;
 }

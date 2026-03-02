@@ -30,4 +30,3 @@ export async function fetchLinkPreview(url) {
   if (!res.ok) throw new Error(data.error || 'Не удалось загрузить данные по ссылке')
   return data
 }
-

@@ -10,4 +10,12 @@ up-d:
 down:
 	docker compose down
 
-.PHONY: up up-d down
+# Линт: фронт (ESLint)
+lint-frontend:
+	cd frontend && npm run lint
+
+# Форматирование: фронт (Prettier)
+format-frontend:
+	cd frontend && npm run format
+
+.PHONY: up up-d down lint-frontend format-frontend
