@@ -1,11 +1,11 @@
 .DS_Store
 node_modules
-/dist
+dist
 
 # SQLite БД (данные хранятся локально)
-/server/data/*.db
-/server/node_modules
-/server/venv
+/backend/data/*.db
+/backend/node_modules
+/backend/venv
 
 # Python
 __pycache__/

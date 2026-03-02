@@ -19,14 +19,14 @@
 ## Установка
 
 ```bash
-cd server
+cd backend
 pip install -r requirements.txt
 ```
 
 Рекомендуется использовать виртуальное окружение:
 
 ```bash
-cd server
+cd backend
 python -m venv venv
 source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
@@ -34,16 +34,10 @@ pip install -r requirements.txt
 
 ## Запуск
 
-Из корня проекта:
+Из папки backend:
 
 ```bash
-npm run server
-```
-
-Или из папки server:
-
-```bash
-cd server
+cd backend
 python app.py
 ```
 
@@ -87,7 +81,7 @@ API вишлиста: http://localhost:3001/api/wishlist
 | `SECRET_KEY` | Секрет для сессий Flask |
 | `GOOGLE_CLIENT_ID` | Client ID из Google Cloud Console (OAuth 2.0) |
 | `GOOGLE_CLIENT_SECRET` | Client Secret |
-| `FRONTEND_URL` | URL фронта (например http://localhost:5173) — для CORS и редиректа после входа |
+| `FRONTEND_URL` | URL фронта (например http://localhost:8080) — для CORS и редиректа после входа |
 | `API_URL` | URL этого API (например http://localhost:3001) — для redirect_uri в OAuth |
 
 В Google Cloud Console: создать OAuth 2.0 Client (тип «Веб-приложение»), в «Authorized redirect URIs» указать `{API_URL}/api/auth/callback`. Разрешены только аккаунты @gmail.com / @googlemail.com.
@@ -95,7 +89,7 @@ API вишлиста: http://localhost:3001/api/wishlist
 Локально (PostgreSQL уже установлен и запущен):
 
 ```bash
-cd server
+cd backend
 export POSTGRES_USER=postgres POSTGRES_PASSWORD=postgres POSTGRES_DB=wishlist
 python app.py
 ```

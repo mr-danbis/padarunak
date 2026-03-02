@@ -4,78 +4,26 @@
 
 ## Стек
 
-- **Фронт:** Vue 3, Vue Router, Pinia, SCSS
-- **Бэк:** Python, Flask, SQLite
-- **Запуск:** локально или в Docker
+- **Фронт:** Vue 3, Vue Router, Pinia, SCSS → [frontend/README.md](frontend/README.md)
+- **Бэк:** Python, Flask, PostgreSQL → [backend/README.md](backend/README.md)
+- **Запуск:** локально или в Docker → [DOCKER.md](DOCKER.md)
 
-## Структура
+## Структура репозитория
 
 ```
-├── src/                 # Vue-приложение
-│   ├── views/           # Страницы (Home, Wishlist)
-│   ├── components/      # Компоненты
-│   ├── api/             # Запросы к API
-│   ├── stores/          # Pinia
-│   └── composables/
-├── server/              # Flask API и БД
-│   ├── app.py
-│   ├── data/            # SQLite (wishlist.db)
-│   └── requirements.txt
+├── frontend/     # Vue SPA (подробнее — frontend/README.md)
+├── backend/      # Flask API (подробнее — backend/README.md)
 ├── docker-compose.yml
-└── DOCKER.md            # Запуск в Docker
+└── DOCKER.md     # Запуск в Docker
 ```
 
-## Разработка (локально)
+## Быстрый старт
 
-### 1. Фронт
+| Действие | Команда |
+|----------|---------|
+| **Всё в Docker (одной командой)** | `make up` или `docker compose up --build` → фронт 8080, API 3001 |
+| Фронт (локально) | `cd frontend && npm install && npm run dev` → http://localhost:8080 |
+| Бэк (локально) | `cd backend && pip install -r requirements.txt && python app.py` → http://localhost:3001 |
 
-```bash
-npm install
-npm run dev
-```
-
-Приложение: http://localhost:8080
-
-### 2. Бэкенд
-
-```bash
-npm run server
-```
-
-Либо из папки `server`: создать venv, установить зависимости, запустить `python app.py`.  
-API: http://localhost:3001  
-Подробнее — [server/README.md](server/README.md).
-
-### 3. Линт
-
-```bash
-npm run lint
-```
-
-## Сборка
-
-```bash
-npm run build
-```
-
-Статика в каталоге `dist/`.
-
-## Docker
-
-Запуск фронта и бэка в контейнерах:
-
-```bash
-docker compose up --build
-```
-
-Фронт: http://localhost:8080, API: http://localhost:3001  
-Подробнее — [DOCKER.md](DOCKER.md).
-
-## API (кратко)
-
-- `GET /api/home` — подборки для главной
-- `GET /api/wishlist` — список вишлиста
-- `POST /api/wishlist` — добавить товар
-- `DELETE /api/wishlist/:id` — удалить товар
-
-Полное описание — в [server/README.md](server/README.md).
+Остановка: `make down` или `docker compose down`.  
+Детали — в README соответствующих папок и в [DOCKER.md](DOCKER.md).

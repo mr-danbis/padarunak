@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "server": "cd server && ./venv/bin/python app.py"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.36.0",
