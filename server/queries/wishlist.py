@@ -17,16 +17,16 @@ def wishlist_list(conn, user_id):
     return rows
 
 
-def wishlist_create(conn, user_id, item_id, name, image_url, link, price, created_at):
+def wishlist_create(conn, user_id, name, image_url, link, price):
     cur = conn.cursor()
     cur.execute(
-        """INSERT INTO wishlist_items (id, user_id, name, image_url, link, price, created_at)
-           VALUES (%s, %s, %s, %s, %s, %s, %s)""",
-        (item_id, user_id, name, image_url, link, price, created_at),
+        """INSERT INTO wishlist_items (user_id, name, image_url, link, price)
+           VALUES (%s, %s, %s, %s, %s)
+           RETURNING *""",
+        (user_id, name, image_url, link, price),
     )
-    conn.commit()
-    cur.execute("SELECT * FROM wishlist_items WHERE id = %s", (item_id,))
     row = cur.fetchone()
+    conn.commit()
     cur.close()
     return row
 

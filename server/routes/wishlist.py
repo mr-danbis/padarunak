@@ -1,10 +1,7 @@
-import time
-
 from flask import Blueprint, request, jsonify, session
 
 from config import get_db_config
 from database import get_db
-from ids import generate_id
 from queries.wishlist import wishlist_claim_orphans, wishlist_list, wishlist_create, wishlist_delete
 from serializers import row_to_item
 
@@ -45,12 +42,10 @@ def create_item():
     image_url = data.get("imageUrl", "")
     link = data.get("link", "")
     price = data.get("price", "")
-    item_id = generate_id()
-    created_at = time.strftime("%Y-%m-%dT%H:%M:%S.000Z", time.gmtime())
 
     conn = get_db()
     try:
-        row = wishlist_create(conn, user_id, item_id, name, image_url, link, price, created_at)
+        row = wishlist_create(conn, user_id, name, image_url, link, price)
         return jsonify(row_to_item(row)), 201
     finally:
         conn.close()

@@ -10,7 +10,6 @@
 | `config.py` | Конфигурация из env (подключение к PostgreSQL: `get_db_config`) |
 | `database.py` | Подключение к БД (`get_db`, `connect_with_retry`) и инициализация схемы (`init_db`) |
 | `serializers.py` | Преобразование строк БД в формат API: `row_to_item`, `row_to_product` |
-| `ids.py` | Генерация уникальных id: `generate_id` |
 | `queries/` | Запросы к таблицам (без Flask): `wishlist` (список, создание, удаление), `home` (подборки) |
 | `services/` | Бизнес-логика: `link_preview` — подгрузка превью товара по URL (парсинг страницы) |
 | `routes/` | HTTP-эндпоинты: `home`, `wishlist`, `link_preview` — регистрируются в `app` через blueprints |

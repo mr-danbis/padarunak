@@ -50,12 +50,12 @@ def init_db(use_retry=False):
     """)
     cur.execute("""
         CREATE TABLE IF NOT EXISTS wishlist_items (
-            id TEXT PRIMARY KEY,
+            id SERIAL PRIMARY KEY,
             name TEXT NOT NULL DEFAULT '',
             image_url TEXT NOT NULL DEFAULT '',
             link TEXT NOT NULL DEFAULT '',
             price TEXT NOT NULL DEFAULT '',
-            created_at TIMESTAMPTZ NOT NULL
+            created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
         )
     """)
     cur.execute("""
