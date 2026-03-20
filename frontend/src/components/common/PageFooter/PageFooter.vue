@@ -2,11 +2,11 @@
   <footer class="footer">
     <div class="footer__container">
       <div class="footer__top">
-        <router-link to="/" class="footer__logo">Padarunak.by</router-link>
+        <router-link to="/" class="footer__logo">wishka</router-link>
         <nav class="footer__nav"></nav>
       </div>
       <div class="footer__bottom">
-        <p class="footer__copy">© {{ year }} Padarunak.by. Все права защищены.</p>
+        <p class="footer__copy">© {{ year }} wishka. Все права защищены.</p>
       </div>
     </div>
   </footer>

@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="header__container">
-      <router-link to="/" class="header__logo"> Padarunak.by </router-link>
+      <router-link to="/" class="header__logo">wishka</router-link>
       <div v-if="!authLoading" class="header__right">
         <template v-if="user">
           <router-link to="/account" class="header__avatar-link">
